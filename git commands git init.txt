@@ -1,0 +1,188 @@
+git commands
+git init
+git status 
+git add 
+git commit - m "message"
+git remote add origin "remoterepourl"
+git push -u origin master
+git pull origin master
+git log
+git log --oneline
+git remote -v
+
+| Command                                 | Purpose                                                                    |
+| --------------------------------------- | -------------------------------------------------------------------------- |
+| `git init`                              | Creates a new Git repository in the current folder                         |
+| `git status`                            | Shows the current status of files in the repository                        |
+| `git add`                               | Moves changes to the **staging area**                                      |
+| `git commit -m "message"`               | Saves the staged changes into Git history                                  |
+| `git remote add origin "remoteRepoURL"` | Connects the local repository to a remote GitHub repository                |
+| `git push -u origin master`             | Uploads local commits to the `master` branch on GitHub                     |
+| `git pull origin master`                | Downloads the latest changes from GitHub's `master` branch and merges them |
+| `git log`                               | Shows detailed commit history                                              |
+| `git log --oneline`                     | Shows commit history in a short, one-line format                           |
+| `git remote -v`                         | Shows the remote repository URL connected to your local repository         |
+
+
+1)Create a folder - inside that folder create a text document - right click that folder  click bash here
+git init
+git status
+git add T1.txt(ivide multiple file add cheyyanamengil git add. kodukanam ennit file name)
+git commit -m "first commit"
+git remote add origin https://github.com/anjalim1999/Luminar_project.git
+clone
+pull
+anjalim1999 my git username
+
+
+
+
+Eclipse project Git-il add cheyyaan: Complete guide
+
+Ningalude Saucedemo project-il cheythathu thanne base aakki ezhuthiyathaanu, athu kondu ningalku ivide vanna problems-um avayude fix-um koodi undu.
+
+PART A: Puthiya project first time Git-il add cheyyaan (one-time setup)
+Step 1: GitHub-il empty repository undaakkuka
+github.com → New repository
+Name kodukkuka (eg: Saucedemo)
+README, .gitignore, license onnum add cheyyaruthu (empty aayirikkanam)
+Create repository → HTTPS URL copy cheyyuka (https://github.com/username/repo.git)
+Step 2: Personal Access Token (HTTPS-inu venam)
+
+GitHub → profile photo → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token (classic) → Note: Eclipse push → repo tick → Generate → copy cheyyuka.
+
+Ithu oru thavana mathram undaakkiyaal mathi, ellaa projects-inum use cheyyaam.
+
+Step 3: .gitignore undaakkuka (commit-inu munpu)
+
+Maven project aanenkil .gitignore already undaakum (hidden). Open cheyyaan Ctrl+Shift+R → .gitignore. Ithil ithu venam:
+
+/target/
+/bin/
+/test-output/
+/Reports/
+.classpath
+.project
+.settings/
+
+Ctrl+S kodukkuka. Illenkil project-il right-click → New → File → .gitignore.
+
+Step 4: Project Git-ilekku share cheyyuka
+Project right-click → Team → Share Project...
+Use or create repository in parent folder of project tick cheyyuka
+Project select cheythu Create Repository click cheyyuka
+Repository directory ningalude project folder aayirikkanam (eg: /home/user/Downloads/eclipse-workspace/Saucedemo). Default path .../snap/eclipse/common/git/repository aanenkil maattuka.
+Finish
+
+Success aayaal project-inte peril [Saucedemo master] ennu kaanum.
+
+Step 5: Commit cheyyuka
+Project right-click → Team → Add to Index (project-il, file-il alla)
+Project right-click → Team → Commit...
+Staged files-il .java, pom.xml undenn nokkuka. target, Reports, test-output illa ennum urappikkuka.
+Message: Initial commit
+Commit click cheyyuka
+Step 6: Remote (origin) undaakki push cheyyuka
+
+Ithaan ningalku ettavum kuzhappam undaakkiyathu. Ee order thanne follow cheyyuka:
+
+Project right-click → Team → Remote → Push...
+URI: HTTPS URL paste cheyyuka (https://github.com/username/repo.git)
+User: GitHub username
+Password: Personal Access Token (account password alla)
+Store in Secure Store tick cheyyuka → Next
+Source ref: refs/heads/master type cheyyuka (allenkil dropdown-il select) → Add Spec
+Next → Finish
+Secure Storage master password / recovery questions chodichaal fill cheythu OK kodukkuka
+Push Results-il master -> master [new branch] kandaal success
+Step 7: Origin remote save cheyyuka (important)
+
+Step 6-il "Push to Another Repository" wizard URL save cheyyilla. Athu kondu pinne Commit and Push fail aakum ("Can't connect to any repository"). Fix:
+
+Window → Show View → Other... → Git → Git Repositories
+Project expand cheythu Remotes right-click → Create Remote...
+Name: origin, Configure fetch select → OK
+Change... → HTTPS URL paste → Finish → Save
+Fetch Results dialog vannaal Close
+
+Ippo project right-click → Team menu-il Push to origin kaanum. Athu kandaal setup complete.
+
+Allenkil (more simple) Step 6-nu pakaram project right-click → Team → Push Branch 'master'... use cheyyuka. Remote origin aayi thanne create aakum, Configure upstream for push and pull tick cheythu Push kodukkuka. Appol Step 7 venda.
+
+PART B: Code maattiyaal GitHub update cheyyaan (daily use)
+Step 1: Code maattuka, save cheyyuka
+
+Maattam varuthi Ctrl+S kodukkuka. Maattiya files-inte munpil > mark kaanum.
+
+Step 2: Git Staging view open cheyyuka
+
+Thaazhe Git Staging tab-il. Kaanunnillenkil: Window → Show View → Other... → Git → Git Staging.
+
+Step 3: Stage cheyyuka
+
+Unstaged Changes-il maattam vanna files kaanum.
+
+Ellaam venamenkil mukalile "+" (Add all) click cheyyuka
+Chila files mathram venamenkil avaye select cheythu "+" click cheyyuka, allenkil drag cheythu Staged Changes-il idukka
+Step 4: Commit message ezhuthuka
+
+Commit Message box-il enthu maattiyennu ezhuthuka (eg: Added login validation).
+
+Step 5: Commit and Push
+
+Commit and Push click cheyyuka (Commit button-inte aduthulla dropdown/gear-il kaanum). Illenkil:
+
+Commit click cheyyuka
+Project right-click → Team → Push to origin
+Step 6: Verify cheyyuka
+Staged/Unstaged (0) aakum, > mark povum
+GitHub page refresh cheythu maattam undo ennu nokkuka
+
+Summary: Ctrl+S → Stage → Message → Commit and Push
+
+PART C: Puthiya project-inu checklist (doubt varathe irikkaan)
+#	Step	Check
+1	GitHub-il empty repo undaakkuka	README illa
+2	.gitignore check cheyyuka	target, Reports, test-output undo
+3	Team → Share Project	Repo directory project folder aano (snap/git/repository alla)
+4	Project-il Team → Add to Index	File-il alla, project-il
+5	Team → Commit	Initial commit
+6	Team → Push Branch 'master'...	URL HTTPS, upstream tick
+7	Token/Secure Store	Username + token (password alla)
+8	GitHub refresh	Files kaanunnundo
+Ningalku vanna problems-um fix-um
+Problem	Karanam	Fix
+.../Saucedemo/Saucedemo invalid project description error	Share Project dialog-il thettaya location	Cancel cheythu [project master] label undo nokkuka. Illenkil Use or create repository in parent folder tick cheythu Finish
+.gitignore already exists	Hidden file aanu, Maven undaakkum	Ctrl+Shift+R vazhi open cheythu edit cheyyuka
+Staged-il src kaanilla	Files individual aayi kaanikkum	.java files kaanunnundenkil shariyaan
+SSH timeout (120000 msec)	Snap Eclipse-inu SSH key kittilla	HTTPS URL + token use cheyyuka
+Password-inu enthu kodukkum	GitHub password work aakilla	Personal Access Token
+Secure Storage recovery questions	"Store in Secure Store" tick cheythathu	Questions fill cheythu OK
+Commit work aayi, push fail ("Can't connect to any repository")	origin remote save aayilla	Remotes → Create Remote origin, allenkil Push Branch 'master'... use cheyyuka
+Eluppam vazhi: terminal (Eclipse prashnam undaakkumbol)
+
+SSH key terminal-il work aakkunnathu kondu:
+
+bash
+cd /home/user/Downloads/eclipse-workspace/Saucedemo
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin git@github.com:username/repo.git
+git push -u origin master
+
+Daily update:
+
+bash
+git add .
+git commit -m "message"
+git push
+
+Pinne Eclipse-il project select cheythu F5 kodukkuka.
+
+Important karyangal
+Commit and Push-inu munpu origin set aayirikkanam. Illenkil "Can't connect" varum.
+Reports, target, test-output commit cheyyaruthu. .gitignore kondu ignore cheyyuka.
+Token-inte screenshot / code-il paste cheyyaruthu. Athu password pole aanu.
+Force overwrite tick cheyyaruthu, GitHub-ile code poyekkum.
+Branch master aano main aano GitHub-il nokkuka. Ningalude local master aanu.
